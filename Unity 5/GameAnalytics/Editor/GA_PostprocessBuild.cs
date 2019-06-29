@@ -18,7 +18,7 @@ namespace GameAnalyticsSDK.Editor
 				PBXProject proj = new PBXProject();
 				proj.ReadFromString(File.ReadAllText(projPath));
 
-				string targetName = PBXProject.GetUnityTargetName();
+				string targetName = proj.GetUnityMainTargetGuid();
 				string target = proj.TargetGuidByName(targetName);
 
 				proj.AddFileToBuild(target, proj.AddFile("usr/lib/libsqlite3.dylib", "Frameworks/libsqlite3.dylib", PBXSourceTree.Sdk));
